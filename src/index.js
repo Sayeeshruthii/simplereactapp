@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import  './index.css';
+class Employee extends React.Component {
+  state={counter:0};
+  addEmployee = () => {
+      this.setState({counter:this.state.counter+1});
+      
+  }
+  render() {
+    return <div>
+        <h2>Employee Component...</h2>
+        <button onClick={this.addEmployee}>Add Employee</button>  
+        <p>
+            <label>Add Employee Button is Clicked : <b>{this.state.counter}</b></label></p>        
+    </div>
+  }
+}
+const element = <Employee></Employee>
+ReactDOM.render(element,document.getElementById('root'));
